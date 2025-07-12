@@ -23,7 +23,7 @@ const LandingHeader = () => {
         <div className="flex items-center justify-between py-5">
           <div className="flex-shrink-0">
             <div className=" w-auto text-white bg-black p-3 rounded-lg dark:bg-transparent">
-              <img src={logo} alt="logo" className="w-[6.4rem]" />
+              <img src={logo} alt="logo" className="w-[7rem] sm:w-[10rem]" />
             </div>
           </div>
 
