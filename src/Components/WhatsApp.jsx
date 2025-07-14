@@ -11,7 +11,7 @@ const WhatsAppIcon = () => {
       rel="noopener noreferrer"
       aria-label="Contact us on WhatsApp"
     >
-      <BsWhatsapp className="w-[2.5rem] scale-95 h-[2.5rem] sm:w-[3rem] sm:h-[3rem] p-1 fill-white group-hover:fill-white group-hover:scale-110 rounded-full shadow-transparent shadow-large group-hover:shadow-primary/50 transition-all duration-300" />
+      <BsWhatsapp className="w-[2.5rem] scale-95 h-[2.5rem] sm:w-[3rem] sm:h-[3rem] p-1 fill-white group-hover:fill-white group-hover:scale-110 shadow-transparent shadow-large group-hover:shadow-primary/50 transition-all duration-300" />
     </Link>
   );
 };

@@ -78,18 +78,19 @@ export const companyDetails = {
   email: "ViQantAI@gmail.com",
   phone: "+91-8639916341",
   address: "company address",
+  whatsapp:"https://wa.me/918639916341",
   socialLinks: [
     {
-      href: "",
+      href: "https://www.linkedin.com/company/viqantai-tech-services-pvt-ltd/",
       icon: FaLinkedin,
     },
     {
-      href: "",
+      href: "https://www.instagram.com/viqantai?igsh=MWsydXcwNWRvaTVmYQ%3D%3D&utm_source=qr",
       icon: FaInstagram,
     },
-    { href: "", icon: FaXTwitter },
+    { href: "https://x.com/ViQantAI", icon: FaXTwitter },
     {
-      href: "",
+      href: "https://www.youtube.com/@ViQantAI",
       icon: FaYoutube,
     },
   ],
