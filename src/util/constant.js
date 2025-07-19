@@ -77,7 +77,7 @@ export const companyDetails = {
   name: "ViQantAI",
   email: "ViQantAI@gmail.com",
   phone: "+91-8639916341",
-  address: "company address",
+  address: "4th Floor, Shiva Shivani Residency, Srinagar Colony, Nirmal, Telangana.",
   whatsapp:"https://wa.me/918639916341",
   socialLinks: [
     {
