@@ -27,7 +27,7 @@ const ContactUsPage = () => {
 
     var payload = {
       to: companyDetails.email,
-      name: companyDetails?.name || "GodversAi",
+      name: companyDetails?.name || "ViQantAI",
       subject: values.subject,
       body: emailBody,
     };
