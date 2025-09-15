@@ -1,12 +1,14 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-function BlogBody({ imageUrl, title, subdescription, readTime, id, passkey }) {
+function BlogBody({ imageUrl, title, subdescription, readTime, id, slug, passkey }) {
   console.log(imageUrl, "imageUrl");
 
   const navigate = useNavigate();
-  const blogPageChange = ({ id }) => {
-    navigate(`/blog/${id}`);
+  const blogPageChange = ({ slug, id }) => {
+    // Use slug if available, otherwise fall back to id
+    const routeParam = slug || id;
+    navigate(`/blog/${routeParam}`);
   };
   return (
     <>
@@ -17,6 +19,7 @@ function BlogBody({ imageUrl, title, subdescription, readTime, id, passkey }) {
         }`}
         onClick={() =>
           blogPageChange({
+            slug,
             id,
           })
         }
@@ -29,7 +32,7 @@ function BlogBody({ imageUrl, title, subdescription, readTime, id, passkey }) {
             className="w-full h-[211px] object-cover rounded-xl  mt-3"
           />
         </div>
-        <div className="p-4">
+        <div className="p-4 text-start w-full">
           <p className="text-sm text-gray-500 dark:text-white">{readTime}</p>
           <h2 className="text-xl font-semibold mb-2 dark:text-white">
             {title}

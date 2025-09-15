@@ -12,6 +12,10 @@
   border-radius: 8px;
 }
 
+.reset-html * {
+  all: revert;
+}
+
 html {
   background-color: #050505;
   overflow-x: hidden;

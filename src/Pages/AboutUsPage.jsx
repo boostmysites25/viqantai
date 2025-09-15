@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import aboutusimg from "../assets/images/aboutusimg.png";
 import { useTheme } from "../Context/ThemeContext";
 import CoreValues from "../Components/CoreValues";
@@ -7,17 +7,35 @@ import OurStory from "../Components/OurStory";
 import UnlockEfficiency from "../Components/UnlockEfficiency";
 import Faq from "../Components/Faq";
 import BlogBody from "../Components/blog/blogBody";
-import { blogPosts } from "../util/blog";
+import { getPublishedBlogs, transformBlogData } from "../util/blogApi";
+import { LoadingSpinner } from "../Components/Loader";
 const AboutUsPage = () => {
   const { theme } = useTheme();
   const isDarkMode = theme === "dark";
+  const [randomPosts, setRandomPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  function getRandomPosts(posts, count) {
-    const shuffled = [...posts].sort(() => 0.5 - Math.random());
-    return shuffled.slice(0, count);
-  }
+  useEffect(() => {
+    const fetchRandomPosts = async () => {
+      try {
+        setLoading(true);
+        const response = await getPublishedBlogs(1, 10);
+        
+        if (response.success && response.blogs) {
+          const allPosts = response.blogs.map(transformBlogData);
+          const shuffled = [...allPosts].sort(() => 0.5 - Math.random());
+          setRandomPosts(shuffled.slice(0, 3));
+        }
+      } catch (error) {
+        console.error('Error fetching blog posts:', error);
+        setRandomPosts([]);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  const randomPosts = getRandomPosts(blogPosts, 3);
+    fetchRandomPosts();
+  }, []);
   return (
     <div className=" bg-white dark:bg-darkblack">
       <section className="relative pt-[7rem]  overflow-hidden">
@@ -70,9 +88,21 @@ const AboutUsPage = () => {
               Latest Insights
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 wrapper paddingtop  ">
-              {randomPosts.map((post, index) => (
-                <BlogBody key={index} {...post} passkey={true} />
-              ))}
+              {loading ? (
+                <div className="col-span-full flex justify-center">
+                  <LoadingSpinner />
+                </div>
+              ) : randomPosts.length > 0 ? (
+                randomPosts.map((post, index) => (
+                  <BlogBody key={post.id || index} {...post} passkey={true} />
+                ))
+              ) : (
+                <div className="col-span-full text-center py-10">
+                  <p className="text-gray-600 dark:text-gray-400">
+                    No blog posts available at the moment.
+                  </p>
+                </div>
+              )}
             </div>
           </div>
           <Faq />
