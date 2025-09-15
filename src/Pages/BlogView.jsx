@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Helmet } from "react-helmet-async";
 import ViewBlogHeader from "../Components/blog/ViewBlogHeader";
 import { useTheme } from "../Context/ThemeContext";
 import ViewBlogContent from "../Components/blog/viewBlogContent";
@@ -9,6 +8,7 @@ import BlogBody from "../Components/blog/blogBody";
 import Faq from "../Components/Faq";
 import RoundedHeader from "../Components/RoundedHeader";
 import { LoadingSpinner } from "../Components/Loader";
+import { useSEO } from "../hooks/useSEO";
 
 function BlogView() {
   const { theme } = useTheme();
@@ -20,6 +20,27 @@ function BlogView() {
   const [relatedPosts, setRelatedPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  // SEO hook for dynamic meta tags
+  useSEO({
+    title: blog ? `${blog.title} | ViQanta Blog` : 'ViQanta Blog',
+    description: blog?.metaDescription || blog?.subdescription || 'Read the latest insights on AI and technology from ViQanta.',
+    keywords: blog?.metaKeywords?.join(', ') || blog?.tags?.join(', ') || 'AI, technology, enterprise solutions',
+    author: blog?.author || 'ViQanta Team',
+    ogTitle: blog?.title,
+    ogDescription: blog?.metaDescription || blog?.subdescription,
+    ogImage: blog?.imageUrl,
+    ogUrl: window.location.href,
+    ogType: 'article',
+    twitterTitle: blog?.title,
+    twitterDescription: blog?.metaDescription || blog?.subdescription,
+    twitterImage: blog?.imageUrl,
+    canonicalUrl: window.location.href,
+    articlePublishedTime: blog?.date,
+    articleAuthor: blog?.author,
+    articleSection: blog?.category,
+    articleTags: blog?.tags || []
+  });
 
   useEffect(() => {
     const fetchBlogData = async () => {
@@ -82,78 +103,44 @@ function BlogView() {
   }
 
   return (
-    <>
-      <Helmet>
-        <title>{blog.title} | ViQanta Blog</title>
-        <meta name="description" content={blog.metaDescription || blog.subdescription} />
-        <meta name="keywords" content={blog.metaKeywords?.join(', ') || blog.tags?.join(', ')} />
-        <meta name="author" content={blog.author} />
-        
-        {/* Open Graph / Facebook */}
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content={blog.title} />
-        <meta property="og:description" content={blog.metaDescription || blog.subdescription} />
-        <meta property="og:image" content={blog.imageUrl} />
-        <meta property="og:url" content={window.location.href} />
-        <meta property="og:site_name" content="ViQanta" />
-        
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={blog.title} />
-        <meta name="twitter:description" content={blog.metaDescription || blog.subdescription} />
-        <meta name="twitter:image" content={blog.imageUrl} />
-        
-        {/* Article specific */}
-        <meta property="article:published_time" content={blog.date} />
-        <meta property="article:author" content={blog.author} />
-        <meta property="article:section" content={blog.category} />
-        {blog.tags?.map((tag, index) => (
-          <meta key={index} property="article:tag" content={tag} />
-        ))}
-        
-        {/* Canonical URL */}
-        <link rel="canonical" href={window.location.href} />
-      </Helmet>
-      
-      <div className="relative bg-white dark:bg-darkblack overflow-x-hidden max-w-screen">
-        <div
-          className={`absolute ${
-            isDarkMode ? `flex` : "hidden"
-          } md:-top-[109rem] -top-[172rem]  blur-3xl left-0 w-full h-full bg-footerBackground  `}
+    <div className="relative bg-white dark:bg-darkblack overflow-x-hidden max-w-screen">
+      <div
+        className={`absolute ${
+          isDarkMode ? `flex` : "hidden"
+        } md:-top-[109rem] -top-[172rem]  blur-3xl left-0 w-full h-full bg-footerBackground  `}
+      />
+      <div className="relative max-w-3xl mx-auto px-4  pt-[7rem]   overflow-hidden ">
+        <ViewBlogHeader
+          image={blog.imageUrl}
+          title={blog.title}
+          readTime={blog.readTime}
+          date={blog.date}
         />
-        <div className="relative max-w-5xl mx-auto px-4  pt-[7rem]   overflow-hidden ">
-          <ViewBlogHeader
-            image={blog.imageUrl}
-            title={blog.title}
-            readTime={blog.readTime}
-            date={blog.date}
-          />
-          <ViewBlogContent content={blog.content} />
-        </div>
-        <div className="wrapper paddingtop">
-          <div className="flex justify-center items-center flex-col">
-            <RoundedHeader title={"Recent Posts"} />
-            <h1 data-aos="fade-up" className="main-title my-3">
-              Related Posts
-            </h1>
-            {relatedPosts.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 py-5 dark:bg-darkblack">
-                {relatedPosts.map((post, index) => (
-                  <BlogBody key={post.id || index} {...post} passkey={true} />
-                ))}
-              </div>
-            ) : (
-              <div className="text-center py-10">
-                <p className="text-gray-600 dark:text-gray-400">
-                  No related posts found.
-                </p>
-              </div>
-            )}
-          </div>
-          <Faq />
-        </div>
+        <ViewBlogContent content={blog.content} />
       </div>
-    </>
+      <div className="wrapper paddingtop">
+        <div className="flex justify-center items-center flex-col">
+          <RoundedHeader title={"Recent Posts"} />
+          <h1 data-aos="fade-up" className="main-title my-3">
+            Related Posts
+          </h1>
+          {relatedPosts.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 py-5 dark:bg-darkblack">
+              {relatedPosts.map((post, index) => (
+                <BlogBody key={post.id || index} {...post} passkey={true} />
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-10">
+              <p className="text-gray-600 dark:text-gray-400">
+                No related posts found.
+              </p>
+            </div>
+          )}
+        </div>
+        <Faq />
+      </div>
+    </div>
   );
 }
 
