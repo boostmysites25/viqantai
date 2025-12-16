@@ -31,7 +31,7 @@ const Header = () => {
             </div>
           </div>
 
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-8 capitalize font-semibold">
             {["/", "/about-us", "/services", "/portfolio", "/blog"].map(
               (path, index) => (
                 <Link

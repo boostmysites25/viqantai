@@ -27,7 +27,7 @@ const LandingHeader = () => {
             </div>
           </div>
 
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-8 font-semibold">
             <Link
               to="/"
               className="text-black dark:text-white hover:text-gray-950 dark:hover:text-primary"
