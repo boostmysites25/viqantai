@@ -68,7 +68,10 @@ const ContactUsPage = () => {
             <div className="space-y-4 desc" data-aos="fade-right">
               <p>Phone: {companyDetails.phone}</p>
               <p>Email: {companyDetails.email}</p>
-              <p>Office Address: {companyDetails.address}</p>
+              <p>
+                Our Offices: <br />{companyDetails.address1} <br />{" "}
+                {companyDetails.addess2}
+              </p>
               <p>Website: www.ViQantAI.com</p>
             </div>
           </div>

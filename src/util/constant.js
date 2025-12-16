@@ -77,7 +77,8 @@ export const companyDetails = {
   name: "ViQantAI",
   email: "connect@viqantai.com",
   phone: "+91-8639916341",
-  address: "4th Floor, Shiva Shivani Residency, Srinagar Colony, Nirmal, Telangana.",
+  address1: "Hyderabad, Telangana, India",
+  addess2:"Bengaluru, Karnataka, India",
   whatsapp:"https://wa.me/918639916341",
   socialLinks: [
     {

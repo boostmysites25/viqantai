@@ -1,7 +1,6 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
-import { companyDetails } from "../util/constant";
 
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
@@ -13,7 +12,7 @@ L.Icon.Default.mergeOptions({
     "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png",
 });
 const MapComponent = () => {
-  const position = [19.096413, 78.342972];
+  const position = [17.3850, 78.4867];
 
   return (
     <div
@@ -30,7 +29,7 @@ const MapComponent = () => {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         />
         <Marker position={position}>
-          <Popup>{companyDetails.address}</Popup>
+         
         </Marker>
       </MapContainer>
     </div>
