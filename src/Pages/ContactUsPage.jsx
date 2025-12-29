@@ -76,9 +76,7 @@ const ContactUsPage = () => {
             </div>
           </div>
 
-          <MapComponent />
-        </div>
-
+          {/* <MapComponent /> */}
         <div className="w-full max-w-2xl mx-auto paddingbottom">
           <h2 className="main-title mb-8 text-center" data-aos="fade-up">
             Schedule a Consultation
@@ -166,6 +164,8 @@ const ContactUsPage = () => {
             </button>
           </form>
         </div>
+        </div>
+
       </div>
     </div>
   );
