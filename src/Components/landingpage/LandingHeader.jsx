@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Sun, Moon, Menu, X } from "lucide-react";
-import logo from "../../assets/images/headerlogo.png";
+import logo from "../../assets/images/logo-white.png";
 import { Link } from "react-router-dom";
 import { useTheme } from "../../Context/ThemeContext";
 import { Link as Scrolllink } from "react-scroll";
@@ -18,11 +18,11 @@ const LandingHeader = () => {
   //   navigate("/contact-us");
   // };
   return (
-    <nav className="fixed w-full top-0 !z-50 bg-primary dark:bg-darkblack shadow-md">
+    <nav className="fixed w-full top-0 !z-50 bg-darkblack shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between py-5">
           <div className="flex-shrink-0">
-            <div className=" w-auto text-white bg-black p-3 rounded-lg dark:bg-transparent">
+            <div className=" w-autop-3 rounded-lg dark:bg-transparent">
               <img src={logo} alt="logo" className="w-[7rem] sm:w-[10rem]" />
             </div>
           </div>
@@ -30,7 +30,7 @@ const LandingHeader = () => {
           <div className="hidden md:flex items-center space-x-8 font-semibold">
             <Link
               to="/"
-              className="text-black dark:text-white hover:text-gray-950 dark:hover:text-primary"
+              className="text-white hover:text-primary"
             >
               Home
             </Link>
@@ -42,7 +42,7 @@ const LandingHeader = () => {
               offset={-140}
               duration={1000}
               activeClass="active-link text-blue-300 dark:text-primary"
-              className="text-black dark:text-white hover:text-gray-950 dark:hover:text-primary"
+              className="text-white hover:text-primary"
             >
               About Us
             </Scrolllink>
@@ -54,14 +54,14 @@ const LandingHeader = () => {
               offset={-140}
               duration={1000}
               activeClass="active-link text-blue-300 dark:text-primary"
-              className="text-black dark:text-white hover:text-gray-950 dark:hover:text-primary"
+              className="text-white hover:text-primary"
             >
               Services
             </Scrolllink>
 
             <Link
               to="/blog"
-              className="text-black dark:text-white hover:text-gray-950 dark:hover:text-primary"
+              className="text-white hover:text-primary"
             >
               Blog
             </Link>
@@ -96,7 +96,7 @@ const LandingHeader = () => {
             </button>
             <button
               onClick={toggleMenu}
-              className="text-gray-900 dark:text-white"
+              className="text-white dark:text-white"
               aria-label="Toggle menu"
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}

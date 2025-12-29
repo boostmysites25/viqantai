@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "../assets/images/headerlogo.png";
+import logo from "../assets/images/logo-white.png";
 import { useTheme } from "../Context/ThemeContext";
 import { companyDetails } from "../util/constant";
 

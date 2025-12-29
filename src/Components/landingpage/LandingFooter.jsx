@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useTheme } from "../../Context/ThemeContext";
-import logo from "../../assets/images/headerlogo.png";
+import logo from "../../assets/images/logo-white.png";
 import { Link as Scrolllink } from "react-scroll";
 import { companyDetails } from "../../util/constant";
 

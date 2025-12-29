@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Sun, Moon, Menu, X } from "lucide-react";
 import { useTheme } from "../Context/ThemeContext";
-import logo from "../assets/images/headerlogo.png";
+import logowhite from "../assets/images/logo-white.png";
+import logoblack from "../assets/images/logo-black.png";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
 const Header = () => {
@@ -22,12 +23,19 @@ const Header = () => {
   const isActive = (path) => location.pathname === path;
 
   return (
-    <nav className="fixed w-full top-0 !z-50 bg-primary dark:bg-darkblack shadow-md">
+    <nav className="fixed w-full top-0 !z-50 bg-darkblack shadow-md">
       <div className="wrapper">
         <div className="flex items-center justify-between py-5">
           <div className="flex-shrink-0">
-            <div className=" w-auto text-white bg-black p-2 rounded-lg dark:bg-transparent">
-              <img src={logo} alt="logo" className="w-[7rem] sm:w-[10rem]" />
+            <div className="w-auto p-2 rounded-lg dark:bg-transparent">
+              <img
+                src={
+                  // isDarkMode ? logowhite :
+                  logowhite
+                }
+                alt="logo"
+                className="w-[7rem] sm:w-[10rem]"
+              />
             </div>
           </div>
 
@@ -37,9 +45,9 @@ const Header = () => {
                 <Link
                   key={index}
                   to={path}
-                  className={`dark:text-white hover:text-blue-300 dark:hover:text-primary ${
+                  className={`text-white hover:text-primary ${
                     isActive(path)
-                      ? "text-gray-700 dark:!text-primary font-semibold"
+                      ? "text-gray-700 font-semibold"
                       : ""
                   }`}
                 >
@@ -93,7 +101,7 @@ const Header = () => {
                   key={index}
                   to={path}
                   onClick={toggleMenu}
-                  className={`block px-3 py-2 rounded-md text-base font-medium text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 ${
+                  className={`block px-3 py-2 rounded-md text-base font-medium text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 capitalize ${
                     isActive(path) ? "bg-gray-100 dark:bg-gray-800" : ""
                   }`}
                 >
