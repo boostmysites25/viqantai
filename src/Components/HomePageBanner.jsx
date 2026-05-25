@@ -107,7 +107,7 @@ const HomePageBanner = () => {
               onClick={() => navigateTo("/about-us")}
               className="primary-btn"
             >
-              Get Start{" "}
+              Get Started{" "}
             </button>
             <button
               data-aos="fade-left"
