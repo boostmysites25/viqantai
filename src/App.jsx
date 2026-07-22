@@ -15,6 +15,7 @@ const ServiceDetails = lazy(() => import("./Pages/ServiceDetails"));
 const LandingPage = lazy(() => import("./Pages/LandingPage"));
 const Thankyou = lazy(() => import("./Pages/Thankyou"));
 const Portfolio = lazy(() => import("./Pages/Portfolio"));
+const PrivacyPolicy = lazy(() => import("./Pages/PrivacyPolicy"));
 
 import { LoadingSpinner } from "./Components/Loader";
 
@@ -46,6 +47,7 @@ const AppRouter = createBrowserRouter([
       { path: "/contact-us", element: <ContactUsPage /> },
       { path: "/portfolio", element: <Portfolio /> },
       { path: "/thank-you", element: <Thankyou /> },
+      { path: "/privacy-policy", element: <PrivacyPolicy /> },
       {
         path: "/blog",
         element: <BlogPage />,

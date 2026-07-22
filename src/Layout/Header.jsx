@@ -40,7 +40,7 @@ const Header = () => {
           </div>
 
           <div className="hidden md:flex items-center space-x-8 capitalize font-semibold">
-            {["/", "/about-us", "/services", "/portfolio", "/blog"].map(
+            {["/", "/about-us", "/services", "/portfolio", "/blog","/privacy-policy"].map(
               (path, index) => (
                 <Link
                   key={index}

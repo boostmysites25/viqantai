@@ -1,0 +1,344 @@
+/* PrivacyPolicy.css
+   Tuned to viqantai.com brand palette:
+     - Dark theme base:  #010C2A (deep navy — matches site theme-color)
+     - Accent (blue):    the "AI" in the logo
+     - Accent (amber):   the "Q" glow in the logo
+   Themes:
+     - Default (no class on <html>) = LIGHT theme
+     - html.dark                    = DARK theme (matches ThemeContext) */
+
+/* ============ BASE (LIGHT) ============ */
+.pp-container {
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 7rem 1.5rem 5rem;
+  font-family: "Inter", "Segoe UI", Arial, Helvetica, sans-serif;
+  color: #374151;
+  line-height: 1.7;
+}
+
+.pp-title {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 800;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.02em;
+  background: linear-gradient(90deg, #010C2A 0%, #2563eb 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.pp-subtitle {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin: 0 0 2.5rem 0;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(1, 12, 42, 0.1);
+}
+
+.pp-section {
+  margin-bottom: 3rem;
+  scroll-margin-top: 7rem;
+  padding: 1.75rem;
+  background: #ffffff;
+  border: 1px solid rgba(1, 12, 42, 0.08);
+  border-radius: 0.75rem;
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pp-section:hover {
+  border-color: rgba(37, 99, 235, 0.3);
+  box-shadow: 0 4px 20px rgba(1, 12, 42, 0.08);
+}
+
+.pp-heading {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #010C2A;
+  margin: 0 0 1rem 0;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid rgba(37, 99, 235, 0.3);
+  letter-spacing: -0.01em;
+}
+
+.pp-subheading {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 1.25rem 0 0.75rem 0;
+}
+
+.pp-body,
+.pp-section p,
+.pp-section li {
+  font-size: 15px;
+  line-height: 1.75;
+  color: #4b5563;
+}
+
+.pp-section p { margin: 0 0 1rem 0; }
+
+.pp-section p strong,
+.pp-section li strong {
+  color: #010C2A;
+  font-weight: 600;
+}
+
+.pp-section em { color: #374151; }
+
+.pp-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0 0 1rem 0;
+}
+
+.pp-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.pp-list li::before {
+  content: "";
+  position: absolute;
+  left: 0.35rem;
+  top: 0.7rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #010C2A, #2563eb);
+}
+
+.pp-spaced li { margin-bottom: 1rem; }
+
+.pp-link {
+  color: #2563eb;
+  text-decoration: none;
+  word-break: break-word;
+  border-bottom: 1px solid rgba(37, 99, 235, 0.3);
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.pp-link:hover {
+  color: #1d4ed8;
+  border-bottom-color: #1d4ed8;
+}
+
+.pp-toc {
+  border: 1px solid rgba(1, 12, 42, 0.08);
+  border-radius: 0.75rem;
+  padding: 1.5rem 1.75rem;
+  background: linear-gradient(
+    135deg,
+    rgba(37, 99, 235, 0.06) 0%,
+    rgba(1, 12, 42, 0.02) 100%
+  );
+  margin-bottom: 3rem;
+  scroll-margin-top: 7rem;
+}
+
+.pp-toc .pp-heading {
+  border-bottom: none;
+  padding-bottom: 0.25rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.15rem;
+}
+
+.pp-toc-link {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  border-bottom: none;
+  margin: 0.15rem 0;
+  color: #4b5563;
+  font-size: 0.925rem;
+  transition: background 0.15s ease, color 0.15s ease, padding-left 0.15s ease;
+}
+
+.pp-toc-link:hover {
+  background: rgba(37, 99, 235, 0.08);
+  color: #010C2A;
+  padding-left: 1rem;
+  border-bottom: none;
+}
+
+.pp-italic { font-style: italic; }
+.pp-bold { font-weight: 600; color: #010C2A; }
+.pp-bold-underline {
+  font-weight: 600;
+  text-decoration: underline;
+  color: #010C2A;
+}
+.pp-underline { text-decoration: underline; }
+.pp-mt { margin-top: 1.25rem; }
+.pp-mb-lg { margin-bottom: 2.5rem; }
+
+.pp-address {
+  font-style: normal;
+  font-size: 15px;
+  color: #374151;
+  line-height: 1.9;
+  padding: 1rem 1.25rem;
+  background: rgba(37, 99, 235, 0.05);
+  border-left: 3px solid #2563eb;
+  border-radius: 0.375rem;
+  margin-top: 0.5rem;
+}
+
+.pp-table-wrap {
+  overflow-x: auto;
+  margin: 1rem 0;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(1, 12, 42, 0.1);
+}
+
+.pp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  min-width: 500px;
+}
+
+.pp-table th,
+.pp-table td {
+  border-bottom: 1px solid rgba(1, 12, 42, 0.06);
+  padding: 0.75rem 1rem;
+  text-align: left;
+  vertical-align: top;
+  color: #4b5563;
+}
+
+.pp-table th {
+  background: rgba(37, 99, 235, 0.08);
+  font-weight: 600;
+  color: #010C2A;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+}
+
+.pp-table tbody tr:last-child td { border-bottom: none; }
+.pp-table tbody tr:hover { background: rgba(1, 12, 42, 0.02); }
+.pp-table .pp-center {
+  text-align: center;
+  font-weight: 600;
+  color: #374151;
+}
+
+.pp-hr {
+  border: none;
+  border-top: 1px solid rgba(1, 12, 42, 0.1);
+  margin: 3rem 0 1.5rem 0;
+}
+
+.pp-footer {
+  font-size: 12px;
+  color: #9ca3af;
+  text-align: center;
+}
+.pp-footer a { color: #6b7280; }
+
+@media (max-width: 640px) {
+  .pp-container { padding: 6rem 1rem 3rem; }
+  .pp-section { padding: 1.25rem; }
+  .pp-toc { padding: 1.25rem; }
+  .pp-heading { font-size: 1.2rem; }
+}
+
+/* ============================================================
+   DARK THEME (html.dark) — matches site background #010C2A
+   ============================================================ */
+
+html.dark .pp-container { color: #cbd5e1; }
+
+html.dark .pp-title {
+  background: linear-gradient(90deg, #ffffff 0%, #60a5fa 50%, #fbbf24 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+html.dark .pp-subtitle {
+  color: #94a3b8;
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+html.dark .pp-section {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+html.dark .pp-section:hover {
+  border-color: rgba(96, 165, 250, 0.35);
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: 0 4px 24px rgba(37, 99, 235, 0.15);
+}
+
+html.dark .pp-heading {
+  color: #ffffff;
+  border-bottom-color: rgba(96, 165, 250, 0.4);
+}
+
+html.dark .pp-subheading { color: #e2e8f0; }
+
+html.dark .pp-body,
+html.dark .pp-section p,
+html.dark .pp-section li { color: #cbd5e1; }
+
+html.dark .pp-section p strong,
+html.dark .pp-section li strong { color: #ffffff; }
+html.dark .pp-section em { color: #e2e8f0; }
+
+html.dark .pp-list li::before {
+  background: linear-gradient(135deg, #60a5fa, #fbbf24);
+}
+
+html.dark .pp-link {
+  color: #60a5fa;
+  border-bottom-color: rgba(96, 165, 250, 0.3);
+}
+html.dark .pp-link:hover {
+  color: #93c5fd;
+  border-bottom-color: #93c5fd;
+}
+
+html.dark .pp-toc {
+  background: linear-gradient(
+    135deg,
+    rgba(37, 99, 235, 0.12) 0%,
+    rgba(251, 191, 36, 0.04) 100%
+  );
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+html.dark .pp-toc-link { color: #cbd5e1; }
+html.dark .pp-toc-link:hover {
+  background: rgba(37, 99, 235, 0.18);
+  color: #ffffff;
+}
+
+html.dark .pp-bold,
+html.dark .pp-bold-underline { color: #ffffff; }
+
+html.dark .pp-address {
+  background: rgba(37, 99, 235, 0.1);
+  color: #cbd5e1;
+  border-left-color: #fbbf24;
+}
+
+html.dark .pp-table-wrap { border-color: rgba(255, 255, 255, 0.1); }
+html.dark .pp-table th,
+html.dark .pp-table td {
+  border-bottom-color: rgba(255, 255, 255, 0.06);
+  color: #cbd5e1;
+}
+html.dark .pp-table th {
+  background: rgba(37, 99, 235, 0.18);
+  color: #ffffff;
+}
+html.dark .pp-table tbody tr:hover { background: rgba(255, 255, 255, 0.03); }
+html.dark .pp-table .pp-center { color: #e2e8f0; }
+
+html.dark .pp-hr { border-top-color: rgba(255, 255, 255, 0.08); }
+html.dark .pp-footer { color: #6b7280; }
+html.dark .pp-footer a { color: #94a3b8; }
